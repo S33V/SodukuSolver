@@ -9,19 +9,19 @@ public class BoardCreater {
 //        Fill the rows array with 9 unique digits ranging from 1 - 9
         for (int i = 0; i < rows.length; i++) {
             for (int j = 0; j < rows[i].length; j++) {
-                int randomNum = ran.nextInt(10) + 1;
+                int randomNum = ran.nextInt(9) + 1;
                 while(checker[randomNum - 1])
-                    randomNum = ran.nextInt(10);
+                    randomNum = ran.nextInt(9) + 1;
                 rows[i][j] = randomNum;
                 checker[randomNum - 1] = true;
             }
         }
-
-        for (int i = 0; i < 3; i++) { // Block row
-            for (int j = 0; j < 3; j++) { // Row
-                for (int k = 0; k < 3; k++) { // Trio
-                    for (int l = 0; l < 3; l++) { // Individual square
-                        board.editSquare(k * l, j * i, (l + i * 5) % 3);
+        System.out.println();
+        for (int blockRow = 0; blockRow < 3; blockRow++) { // Block row
+            for (int row = 0; row < 3; row++) { // Row
+                for (int trio = 0; trio < 3; trio++) { // Trio
+                    for (int boardElement = 0; boardElement < 3; boardElement++) { // Individual square
+                        board.editSquare(trio * 3 + boardElement, row * 3 + blockRow, rows[(trio + blockRow * 5) % 3][(boardElement + row * 5) % 3]);
                     }
                 }
             }
