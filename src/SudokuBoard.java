@@ -9,14 +9,19 @@ public class SudokuBoard {
      }
 
      public String toString() {
-         StringBuffer sb = new StringBuffer();
-         sb.append("--------------------\n");
+         StringBuilder sb = new StringBuilder();
+         sb.append("-----------------------\n||");
          for (int i = 0; i < board.length; i++) {
              for(int j = 0; j < board[i].length; ++j){
-                 sb.append("|").append(board[i][j]).append("|");
+                 sb.append(board[i][j]).append("|");
+                 if((j + 1) % 3 == 0 )
+                     sb.append("|");
              }
-             sb.append("--------------------\n");
+             sb.append("\n-----------------------\n||");
          }
+         sb.setLength(sb.length() - 2);
+
+
          return sb.toString();
      }
 }
