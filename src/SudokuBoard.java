@@ -6,6 +6,7 @@ public class SudokuBoard {
 
      public void editSquare(int col, int row, int value) {
          board[row][col] = value;
+             System.out.println(this);
      }
 
      public String toString() {
