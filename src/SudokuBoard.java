@@ -4,7 +4,7 @@ public class SudokuBoard {
          board = new int[9][9];
      }
 
-     public void editSquare(int col, int row, int value) {
+     public void editSquare(int row, int col, int value) {
          board[row][col] = value;
              System.out.println(this);
      }
